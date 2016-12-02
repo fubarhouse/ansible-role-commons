@@ -1,5 +1,7 @@
 ---
 
+fubarhouse_vhosts: []
+
 # Using geerlingguy.apache on Ubuntu/Debian, we can add-in
 # apache modules here, we need proxy so let's default to that.
 

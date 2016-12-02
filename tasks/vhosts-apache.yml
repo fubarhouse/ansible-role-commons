@@ -24,7 +24,7 @@
     mode: 0777
   with_items:
     - "{{ fubarhouse_vhosts }}"
-  when: fubarhouse_vhosts.0 is defined
+  when: fubarhouse_vhosts
 
 - name: "Virtual hosts | Apache2 | Create virtual host (sites-enabled)"
   become: yes
@@ -37,4 +37,4 @@
     mode: 0777
   with_items:
     - "{{ fubarhouse_vhosts }}"
-  when: fubarhouse_vhosts.0 is defined
+  when: fubarhouse_vhosts
