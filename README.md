@@ -1,7 +1,7 @@
 # Ansible Role: Commons
 
 [![Build Status](https://travis-ci.org/fubarhouse/ansible-role-commons.svg?branch=master)](https://travis-ci.org/fubarhouse/ansible-role-commons)
-[![Ansible Galaxy](https://img.shields.io/badge/galaxy-fubarhouse--commons-ROLEID.svg)](https://galaxy.ansible.com/fubarhouse/commons)
+[![Ansible Galaxy](https://img.shields.io/badge/galaxy-fubarhouse--commons-13943.svg)](https://galaxy.ansible.com/fubarhouse/commons)
 
 The purpose of this role is to consolidate all common behaviors/tasks used frequently by fubarhouse Ansible roles. Over time every role using a piece of this role will use this role. All functionality is segregated by logic.
 
