@@ -1,0 +1,22 @@
+# UpSource Apache configuration
+
+<VirtualHost *:80>
+    ServerName {{ item.domain }}
+    ProxyRequests off
+    Keepalive On
+    <Proxy *>
+        Order deny,allow
+        Allow from all
+    </Proxy>
+    <Location />
+        ProxyPass http://localhost:{{ item.port }}/
+        ProxyPassReverse http://localhost:{{ item.port }}/
+    </Location>
+    <Directory "{{ item.docroot }}">
+      Options Indexes FollowSymLinks MultiViews
+      Order allow,deny
+      Allow from all
+      AllowOverride All
+      Require all granted
+    </Directory>
+</VirtualHost>

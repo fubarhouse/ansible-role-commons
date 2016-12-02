@@ -1,0 +1,25 @@
+---
+
+- name: "Commons | Virtual host | Ensure destination directories exist"
+  become: yes
+  become_user: root
+  file:
+    path: "{{ item }}"
+    state: directory
+  with_items:
+    - "/etc/{{ fubarhouse_apache_service }}/conf.d/"
+    - "/etc/{{ fubarhouse_apache_service }}/sites-available/"
+    - "/etc/{{ fubarhouse_apache_service }}/sites-enabled/"
+  when: fubarhouse_apache_service is defined and fubarhouse_webserver == 'apache2'
+
+- name: "Commons | Virtual host | Ensure destination directories exist"
+  become: yes
+  become_user: root
+  file:
+    path: "{{ item }}"
+    state: directory
+  with_items:
+    - /etc/nginx/conf.d/
+    - /etc/nginx/sites-available/
+    - /etc/nginx/sites-enabled/
+  when: fubarhouse_webserver == 'nginx'

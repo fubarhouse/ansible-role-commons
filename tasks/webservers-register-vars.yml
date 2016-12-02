@@ -1,0 +1,15 @@
+---
+
+- name: "Webservers | Scanning for Apache2"
+  stat:
+    path: /usr/sbin/apache2
+  register: apache2_is_installed
+  failed_when: false
+  when: apache2_is_installed is undefined
+
+- name: "Webservers | Scanning for NGINX"
+  stat:
+    path: /usr/sbin/nginx
+  register: nginx_is_installed
+  failed_when: false
+  when: nginx_is_installed is undefined

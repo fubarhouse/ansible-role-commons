@@ -1,0 +1,35 @@
+---
+
+galaxy_info:
+  author: Karl Hepworth
+  description: Assists ansible roles written by the same author with common functionalty and variable declarations.
+  license: MIT
+  min_ansible_version: 2.0.0
+  galaxy_tags:
+  - fubarhouse
+  - common
+  platforms:
+  - name: Ubuntu
+    versions:
+    - all
+    - lucid
+    - maverick
+    - natty
+    - oneiric
+    - precise
+    - quantal
+    - raring
+    - saucy
+    - trusty
+    - utopic
+    - vivid
+    - wily
+  - name: Debian
+    versions:
+    - all
+  categories: []
+dependencies:
+  - role: geerlingguy.apache
+    when: fubarhouse_webserver is defined and fubarhouse_webserver == 'apache2'
+  - role: geerlingguy.nginx
+    when: fubarhouse_webserver is defined and fubarhouse_webserver == 'nginx'

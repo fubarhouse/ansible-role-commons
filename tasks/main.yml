@@ -1,0 +1,24 @@
+---
+
+- name: "Commons | include user variable declaration tasks"
+  include: user-register-vars.yml
+
+- name: "Commons | include webserver variable declaration tasks"
+  include: webservers-register-vars.yml
+  when: fubarhouse_webserver is defined
+
+- name: "Commons | include OS-specific apache tasks"
+  include: webservers-apache-modules.yml
+  when: fubarhouse_webserver is defined and fubarhouse_webserver == 'apache2'
+
+- name: "Commons | include vhost prep tasks"
+  include: webservers-vhost-prep.yml
+  when: fubarhouse_webserver is defined
+
+- name: "Commons | include vhost tasks"
+  include: vhosts-apache.yml
+  when: fubarhouse_webserver is defined and fubarhouse_webserver == 'apache2'
+
+- name: "Commons | include nginx vhost tasks"
+  include: vhosts-nginx.yml
+  when: fubarhouse_webserver is defined and fubarhouse_webserver == 'nginx'

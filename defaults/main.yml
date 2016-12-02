@@ -1,0 +1,10 @@
+---
+
+# Using geerlingguy.apache on Ubuntu/Debian, we can add-in
+# apache modules here, we need proxy so let's default to that.
+
+apache_mods_enabled:
+  - proxy.load
+  - proxy_http.load
+  - rewrite.load
+  - proxy_wstunnel.load

@@ -1,0 +1,24 @@
+---
+
+- name: "Webservers | Apache | Enable proxy modules"
+  lineinfile:
+    dest: "/etc/httpd/conf/httpd.conf"
+    regexp: "^LoadModule {{ item }}_module /etc/httpd/modules/mod_{{ item }}.so"
+    line: "LoadModule {{ item }}_module /etc/httpd/modules/mod_{{ item }}.so"
+    state: present
+  with_items:
+    - proxy
+    - proxy_http
+    - rewrite
+    - proxy_wstunnel
+  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
+
+- name: "Webservers | Apache | Specify HTTPD as apache alias"
+  set_fact:
+    fubarhouse_apache_service: httpd
+  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
+
+- name: "Upsource | Apache | Specify Apache2 as apache alias"
+  set_fact:
+    fubarhouse_apache_service: apache2
+  when: ansible_distribution != 'CentOS' and ansible_distribution != 'Red Hat Enterprise Linux'
