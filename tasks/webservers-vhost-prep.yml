@@ -7,9 +7,9 @@
     path: "{{ item }}"
     state: directory
   with_items:
-    - "/etc/{{ fubarhouse_apache_service }}/conf.d/"
-    - "/etc/{{ fubarhouse_apache_service }}/sites-available/"
-    - "/etc/{{ fubarhouse_apache_service }}/sites-enabled/"
+    - "/etc/{{ fubarhouse_apache_service | default('apache2') }}/conf.d/"
+    - "/etc/{{ fubarhouse_apache_service | default('apache2') }}/sites-available/"
+    - "/etc/{{ fubarhouse_apache_service | default('apache2') }}/sites-enabled/"
   when: fubarhouse_apache_service is defined and fubarhouse_webserver == 'apache2'
 
 - name: "Commons | Virtual host | Ensure destination directories exist"
