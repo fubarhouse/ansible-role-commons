@@ -1,7 +1,7 @@
-# UpSource Apache configuration
+# {{ item[1].name }} Apache configuration
 
 <VirtualHost *:80>
-    ServerName {{ item.domain }}
+    ServerName {{ item[1].domain }}
     ProxyRequests off
     Keepalive On
     <Proxy *>
@@ -9,10 +9,10 @@
         Allow from all
     </Proxy>
     <Location />
-        ProxyPass http://localhost:{{ item.port }}/
-        ProxyPassReverse http://localhost:{{ item.port }}/
+        ProxyPass http://localhost:{{ item[1].port }}/
+        ProxyPassReverse http://localhost:{{ item[1].port }}/
     </Location>
-    <Directory "{{ item.docroot }}">
+    <Directory "{{ item[1].docroot }}">
       Options Indexes FollowSymLinks MultiViews
       Order allow,deny
       Allow from all

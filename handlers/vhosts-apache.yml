@@ -1,0 +1,14 @@
+---
+
+- name: "Virtual hosts | Apache2 | Create virtual hosts"
+  become: yes
+  become_user: root
+  template:
+    src: "../templates/vhosts/apache2.conf.j2"
+    dest: "/etc/{{ fubarhouse_apache_service }}/{{ item[0] }}/{{ item[1].name }}.conf"
+    owner: root
+    group: root
+    mode: 0777
+  with_nested:
+  - ['conf.d', 'sites-available', 'sites-enabled']
+  - "{{ fubarhouse_vhosts }}"
