@@ -28,8 +28,4 @@ galaxy_info:
     versions:
     - all
   categories: []
-dependencies:
-  - role: geerlingguy.apache
-    when: fubarhouse_webserver is defined and fubarhouse_webserver == 'apache2'
-  - role: geerlingguy.nginx
-    when: fubarhouse_webserver is defined and fubarhouse_webserver == 'nginx'
+dependencies: []

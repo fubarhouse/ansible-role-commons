@@ -9,12 +9,12 @@ The purpose of this role is to consolidate all common behaviors/tasks used frequ
 * Sets `apache2_is_installed` and `nginx_is_installed` for usage with Ansible roles authored by fubarhouse.
 * Ensures `conf.d`, `sites-available` and `sites-enabled` folders are created for either `apache2` or `nginx` web servers.
 * Creates virtual hosts fed through a proxy to localhost:port from a simple array.
-* Makes sure apache2 proxy modules are enabled on RedHat/CentOS/REHL systems. 
+* Makes sure apache2 proxy modules are enabled on RedHat/CentOS/REHL systems.
+* Webserver roles `geerlingguy.apache` and `geerlinguy.nginx` are no longer included.
 
 ## Requirements
 
-  * `geerlingguy.apache`
-  * `geerlingguy.nginx`
+  * none
 
 ## Role Variables
 
