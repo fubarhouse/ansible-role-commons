@@ -21,11 +21,3 @@
 - name: "Commons | include vhost prep tasks"
   include: webservers-vhost-prep.yml
   when: fubarhouse_webserver is defined
-
-- name: "Commons | include vhost tasks"
-  include: vhosts-apache.yml
-  when: fubarhouse_webserver is defined and fubarhouse_webserver == 'apache2'
-
-- name: "Commons | include nginx vhost tasks"
-  include: vhosts-nginx.yml
-  when: fubarhouse_webserver is defined and fubarhouse_webserver == 'nginx'

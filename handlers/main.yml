@@ -1,0 +1,7 @@
+---
+
+- name: "vhosts-apache"
+  include: vhosts-apache.yml
+
+- name: "vhosts-nginx"
+  include: vhosts-nginx.yml
